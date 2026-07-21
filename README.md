@@ -190,89 +190,45 @@ INTERNSHIP_BACKEND_PROJECT_MAHESH_RASAPALLI/
 └─ README.md
 ```
 
-## Setup & Local Installation
+## Setup Instructions
 
-Follow these steps to get the app running locally on your machine.
+### Backend
 
-### Prerequisites
-- [Node.js](https://nodejs.org/en/) (v16+)
-- [MongoDB](https://www.mongodb.com/try/download/community) installed and running locally, or a MongoDB Atlas connection string.
+```bash
+npm install
+npm run dev
+```
 
-### 1. Backend Setup
+### Frontend
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create the environment variables file:
-   Create a `.env` file inside `backend/src/.env` and add the following:
-   ```env
-   PORT=5000
-   CONNECTION_STRING=mongodb://localhost:27017/rbac
-   JWT_SECRET=my_super_secret_jwt_key_123
-   ```
-4. Start the backend development server:
-   ```bash
-   npm run dev
-   ```
-   *The backend should now be running at `http://localhost:5000`.*
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-### 2. Frontend Setup
+### Access URLs
 
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create the environment variables file:
-   Create a `.env` file inside the `frontend` folder (`frontend/.env`) and add:
-   ```env
-   VITE_API_BASE_URL=http://localhost:5000/api/v1
-   ```
-4. Start the frontend development server:
-   ```bash
-   npm run dev
-   ```
-   *The frontend should now be running at `http://localhost:5173`.*
+- Backend API: http://localhost:5000
+- Frontend App (Vite default): http://localhost:5173
+- Swagger UI: http://localhost:5000/api-docs
 
----
+## Environment Variables
 
-## Local Testing Flow
+Define these in src/.env:
 
-Once both the frontend and backend are running locally, follow this flow to test the Role-Based Access Control (RBAC) system:
+```env
+PORT=5000
+CONNECTION_STRING=<your_mongodb_srv_connection_string>
+CONNECTION_STRING_DIRECT=<your_mongodb_direct_connection_string>
+JWT_SECRET=<your_jwt_secret>
+```
 
-### Step 1: Register an Admin
-1. Go to `http://localhost:5173/register`.
-2. Register a new user (e.g., Username: `admin_mahesh`, Password: `Password123`, Role: `admin`).
-3. Log in with these credentials at `http://localhost:5173/login`.
-4. You will be redirected to the **Admin Dashboard**, where you can view all users and tasks.
+Frontend variable (frontend/.env):
 
-### Step 2: Register a Regular User
-1. Open a private/incognito window (or log out of the admin account).
-2. Go to `http://localhost:5173/register`.
-3. Register a new user (e.g., Username: `user_john`, Password: `Password123`, Role: `user`).
-4. Log in. You will be redirected to the **User Dashboard**. Currently, the task list will be empty.
-
-### Step 3: Create & Assign a Task (As Admin)
-1. Switch back to your Admin window.
-2. In the Admin Dashboard, use the **Create Task** form to make a new task (e.g., "Complete Project Setup").
-3. Assign the task to `user_john` using the dropdown.
-4. Click Create.
-
-### Step 4: Complete the Task (As User)
-1. Switch back to your User window and refresh the dashboard.
-2. You will now see the task assigned to you by the Admin.
-3. Use the dropdown on the task card to update the status from `pending` to `in progress` or `completed`.
-4. (Optional) Try accessing the Swagger UI at `http://localhost:5000/api-docs` to interact with the backend directly using your JWT token!
-
----
+```env
+VITE_API_BASE_URL=http://localhost:1729/api/v1
+```
 
 ## API Endpoints
 
@@ -301,12 +257,14 @@ Once both the frontend and backend are running locally, follow this flow to test
 - Service layer isolates business rules from transport layer
 - Middleware-based security keeps auth/authorization reusable and centralized
 - Swagger + exported OpenAPI improves collaboration, testing, and onboarding
+- Current token revocation is in-memory; can be upgraded to Redis for distributed deployment
 
 ## Deployment
 
 - Backend can be deployed on any Node-compatible platform (Render, Railway, EC2, Docker)
 - Frontend can be deployed on Vercel/Netlify as static build
 - Use managed MongoDB (Atlas) and secure environment variable injection
+- Keep docs/openapi.json in CI pipeline for API contract visibility
 
 ## License
 
