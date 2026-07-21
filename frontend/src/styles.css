@@ -1,0 +1,744 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #16202a;
+  background: #f3f5f7;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  background: #0f172a;
+}
+
+.nav-user-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-user-label {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.api-version-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  background: #111b33;
+}
+
+.api-version-label {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.api-version-toggle {
+  display: inline-flex;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.api-version-btn {
+  border: 0;
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 0.22rem 0.58rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.api-version-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.api-version-btn:not(.active):hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.brand,
+.nav-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  margin-left: 0.8rem;
+}
+
+.logout-btn {
+  border: 0;
+  background: #ef4444;
+  color: #fff;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-page,
+.dashboard-page {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.dashboard-card {
+  width: min(640px, 100%);
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+.dashboard-eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.admin-card {
+  border-left: 6px solid #dc2626;
+}
+
+.user-card {
+  border-left: 6px solid #2563eb;
+}
+
+.admin-dashboard-page {
+  place-items: stretch;
+}
+
+.admin-dashboard-page .dashboard-content {
+  width: 100%;
+  min-height: calc(100vh - 60px - 2rem);
+  height: 100%;
+}
+
+.admin-dashboard-page .admin_page {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.CreateTask,
+.ViewUsers,
+.viewTasks {
+  width: calc((100% - 2rem) / 3);
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  border-top: 2px solid #dbe2ea;
+  overflow: hidden;
+}
+
+.CreateTask h2,
+.ViewUsers h2,
+.viewTasks h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.CreateTask p:last-child,
+.ViewUsers p:last-child,
+.viewTasks p:last-child {
+  margin-bottom: 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.CreateTask form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.CreateTask input,
+.CreateTask textarea,
+.CreateTask select,
+.CreateTask button {
+  width: 100%;
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+.CreateTask input,
+.CreateTask textarea,
+.CreateTask select {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+}
+
+.CreateTask button {
+  border: 0;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.users-checkbox-list {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.7rem;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.created-tasks-scroll {
+  margin-top: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem;
+  max-height: 340px;
+  overflow-y: auto;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.created-task-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.65rem;
+  background: #fff;
+}
+
+.created-task-card h4 {
+  margin: 0 0 0.35rem;
+}
+
+.created-task-card p {
+  margin: 0 0 0.65rem;
+}
+
+.created-task-card button {
+  border: 0;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.ViewUsers ul,
+.viewTasks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.viewTasks {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.viewTasks ul {
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  padding-right: 0.1rem;
+}
+
+.ViewUsers li,
+.viewTasks li {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.5rem 0.6rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.viewTasks li button {
+  margin-top: 0.5rem;
+  border: 0;
+  background: #dc2626;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.task-overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+  max-width: 100%;
+  height: 210px;
+  min-height: 210px;
+  max-height: 210px;
+  overflow: hidden;
+}
+
+.task-overview-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+}
+
+.task-overview-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.task-overview-card.task-overview-card-editing {
+  height: 230px;
+  min-height: 230px;
+  max-height: 230px;
+}
+
+.task-meta-line {
+  color: #334155;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.task-actions-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.task-actions-row button {
+  margin-top: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.task-actions-row button:first-child {
+  background: #0f172a;
+  color: #fff;
+}
+
+.task-actions-row button:last-child {
+  background: #dc2626;
+  color: #fff;
+}
+
+.task-edit-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.task-edit-form input,
+.task-edit-form textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 0.5rem;
+}
+
+.task-description-text {
+  margin-top: 0.15rem;
+  margin-bottom: 0.2rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.3;
+  font-size: 0.96rem;
+}
+
+.task-status-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.12rem 0.48rem;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #1e293b;
+  font-size: 0.78rem;
+  text-transform: capitalize;
+}
+
+.task-status-badge.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.task-status-badge.status-in-progress {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.task-status-badge.status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.users-cards-list {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.user-card-item {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.assign-actions {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.assign-actions button {
+  border: 0;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.viewTasks ul,
+.created-tasks-scroll,
+.users-cards-list,
+.user-task-list {
+  scrollbar-width: none;
+}
+
+.viewTasks ul::-webkit-scrollbar,
+.created-tasks-scroll::-webkit-scrollbar,
+.users-cards-list::-webkit-scrollbar,
+.user-task-list::-webkit-scrollbar,
+.user-admins-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.user-dashboard-page {
+  place-items: stretch;
+}
+
+.user-dashboard-page .dashboard-content {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+}
+
+.user-dashboard-layout {
+  width: 100%;
+  min-height: calc(100vh - 60px - 2rem);
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(240px, 24%) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.user-admins-panel,
+.user-tasks-panel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.user-admins-panel {
+  border-top: 2px solid #dbe2ea;
+}
+
+.user-tasks-panel {
+  border-top: 2px solid #dbe2ea;
+}
+
+.user-admins-list {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.55rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.user-admin-card {
+  text-align: left;
+  border: 1px solid #dbe2ea;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  cursor: pointer;
+}
+
+.user-admin-card.active {
+  background: #e0e7ff;
+  border-color: #94a3b8;
+}
+
+.user-task-list {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.75rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.user-task-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.user-task-card h3 {
+  margin: 0;
+}
+
+.user-task-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.user-task-meta {
+  margin: 0;
+  color: #334155;
+}
+
+.user-task-card label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.user-task-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: end;
+}
+
+.user-task-actions label {
+  grid-column: 1 / -1;
+}
+
+.user-task-card select {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  padding: 0.45rem;
+  margin-bottom: 0;
+}
+
+.user-task-card button {
+  border: 0;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+
+.dashboard-version-note {
+  margin: -0.15rem 0 0.45rem;
+  color: #475569;
+  font-size: 0.82rem;
+}
+
+.user-dashboard-v2 {
+  background: linear-gradient(135deg, #eef4ff 0%, #f8fbff 45%, #f3f8ff 100%);
+}
+
+.user-dashboard-v2 .user-admins-panel,
+.user-dashboard-v2 .user-tasks-panel {
+  border-top: 0;
+  border: 1px solid #d6e3ff;
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.12);
+}
+
+.user-dashboard-v2 .dashboard-eyebrow {
+  color: #1d4ed8;
+}
+
+.user-dashboard-v2 .dashboard-version-note {
+  color: #1e40af;
+}
+
+.user-dashboard-v2 .user-admin-card {
+  background: #f4f8ff;
+  border-color: #c7d7fe;
+}
+
+.user-dashboard-v2 .user-admin-card.active {
+  background: linear-gradient(90deg, #dbeafe 0%, #e0edff 100%);
+  border-color: #93c5fd;
+  color: #1e3a8a;
+}
+
+.user-task-card-v2 {
+  border: 1px solid #dbeafe;
+  border-left: 4px solid #3b82f6;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+}
+
+.user-dashboard-v2 .user-task-card select {
+  border-color: #bfdbfe;
+  background: #f8fbff;
+}
+
+.user-dashboard-v2 .user-task-card button {
+  background: #2563eb;
+}
+
+.user-dashboard-v2 .user-task-card button:hover {
+  background: #1d4ed8;
+}
+
+.CreateTask,
+.ViewUsers,
+.viewTasks {
+  border-top-color: #dbe2ea;
+}
+
+.dashboard-content {
+  width: min(1200px, 100%);
+  display: grid;
+  gap: 1rem;
+}
+
+.dashboard-role-header {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-role-header h1 {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .admin-dashboard-page .admin_page {
+    flex-direction: column;
+  }
+
+  .CreateTask,
+  .ViewUsers,
+  .viewTasks {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .user-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 0.75rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.auth-subtitle {
+  margin: -0.25rem 0 0.25rem;
+  color: #64748b;
+}
+
+.auth-switch-text {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: #475569;
+  text-align: center;
+}
+
+.auth-switch-text a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card button {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 7px;
+}
+
+.auth-card input {
+  border: 1px solid #cbd5e1;
+}
+
+.auth-card select {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+}
+
+.auth-card button {
+  border: 0;
+  background: #0f172a;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.error-text {
+  color: #dc2626;
+  margin: 0;
+}
